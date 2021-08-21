@@ -48,7 +48,7 @@
                     <td scope="col">{{$brands->firstItem()+$loop->index}}</td>
                     <td scope="col">{{$brand->brand_name}}</td>
                     <td scope="col">
-                        <img src="" alt="">
+                        <img src="{{asset($brand->brand_image)}}" style="height: 40px; width:70px" alt="">
                     </td>
                     <td scope="col">
                       @if ($brand->created_at==NULL)

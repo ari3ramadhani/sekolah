@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KontakController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\MultipicController;
 use App\Models\User;
 
 // Ini kalo pake query builder
@@ -59,6 +60,11 @@ Route::post('/brand/add',[BrandController::class, 'StoreBrand'])->name('store.br
 Route::get('/brand/edit/{id}',[BrandController::class, 'Edit']);
 Route::post('/brand/update/{id}',[BrandController::class, 'Update']);
 Route::get('/brand/delete/{id}',[BrandController::class, 'Delete']);
+
+
+// multi picture
+Route::get('/multi/image',[MultipicController::class, 'Multipic'])->name('multi.image');
+Route::post('/multi/add',[MultipicController::class, 'StoreImage'])->name('store.image');
 
 
 Route::get('/kontak', [KontakController::class, 'index']);

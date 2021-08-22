@@ -81,5 +81,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     // Ini kalo pake query builder
     $users = DB::table('users')->get();
     // ====================
-    return view('dashboard', compact('users'));
+    // return view('dashboard', compact('users'));
+
+    return view('admin.index');
+    
 })->name('dashboard');

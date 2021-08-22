@@ -21,6 +21,11 @@ use Illuminate\Support\Facades\DB;
 |
 */
 
+// start email verifikasi
+
+// end email verifikasi
+
+
 Route::get('/', function () {
     return view('welcome');
 });

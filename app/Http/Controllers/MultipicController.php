@@ -14,6 +14,11 @@ use Image;
 class MultipicController extends Controller
 {
     //
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
+    
     public function Multipic(){
 
         $images = Multipic::all();

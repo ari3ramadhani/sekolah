@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Brand;
 use Illuminate\Support\Carbon;
-
+use Auth;
 // resize
 use Image;
 
@@ -113,5 +113,13 @@ class BrandController extends Controller
 
         Brand::find($id)->delete();
         return Redirect()->back()->with('success', 'Brand berhasil dihapus');
+    }
+
+
+
+
+    public function Logout(){
+        Auth::logout();
+        return Redirect()->route('login')->with('success', 'User berhasil logoout');
     }
 }

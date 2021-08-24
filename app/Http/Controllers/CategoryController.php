@@ -29,7 +29,7 @@ class CategoryController extends Controller
 
         // dengan query builder
         // $categories = DB::table('categories')->latest()->paginate(5);
-        
+
         return view('admin.category.index',compact('categories','trashCat'));
     }
 
@@ -48,7 +48,7 @@ class CategoryController extends Controller
         //     'category_name' => $request->category_name,
         //     'user_id' => Auth::user()->id,
         //     'created_at'=>Carbon::now()
-            
+
         // ]);
 
         // dengan eloquent
@@ -65,7 +65,7 @@ class CategoryController extends Controller
             $data['user_id']=Auth::user()->id;
             $data['created_at']=Carbon::now();
             DB::table('categories')->insert($data);
-            
+
         return Redirect()->back()->with('success', 'Kategori berhasil ditambahkan');
     }
 
@@ -88,7 +88,7 @@ class CategoryController extends Controller
         //     'user_id' => Auth::user()->id
         // ]);
 
-        // Dengan Query builder        
+        // Dengan Query builder
         $data = array();
         $data['category_name']=$request->category_name;
         $data['user_id']=Auth::user()->id;

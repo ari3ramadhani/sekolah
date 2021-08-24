@@ -5,6 +5,7 @@ use App\Http\Controllers\KontakController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\MultipicController;
+use App\Http\Controllers\HomeController;
 use App\Models\User;
 
 // Ini kalo pake query builder
@@ -27,7 +28,8 @@ use Illuminate\Support\Facades\DB;
 
 
 Route::get('/', function () {
-    return view('home');
+    $brands = DB::table('brands')->get();
+    return view('home',compact('brands'));
 });
 
 Route::get('/home', function () {
@@ -70,6 +72,16 @@ Route::get('/brand/delete/{id}',[BrandController::class, 'Delete']);
 // multi picture
 Route::get('/multi/image',[MultipicController::class, 'Multipic'])->name('multi.image');
 Route::post('/multi/add',[MultipicController::class, 'StoreImage'])->name('store.image');
+
+// Admin Semua route
+Route::get('/home/slider',[HomeController::class, 'HomeSlider'])->name('home.slider');
+Route::get('/add/slider',[HomeController::class, 'AddSlider'])->name('add.slider');
+Route::post('/store/slider',[HomeController::class, 'StoreSlider'])->name('store.slider');
+
+
+
+
+
 
 
 Route::get('/kontak', [KontakController::class, 'index']);

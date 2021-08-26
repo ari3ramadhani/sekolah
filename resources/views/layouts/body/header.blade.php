@@ -32,7 +32,8 @@
           <li class="{{request()->routeIs('portfolio')?'active':''}}"><a href="{{route('portfolio')}}">Portfolio</a></li>
           <li><a href="pricing.html">Pricing</a></li>
           <li><a href="blog.html">Blog</a></li>
-          <li><a class="{{request()->routeIs('contact')?'active':''}}"><a href="{{route('contact')}}">Contact</a></li>
+          <li class="{{request()->routeIs('contact')?'active':''}}"><a href="{{route('contact')}}">Contact</a></li>
+          <li><a class=""><a href="{{route('login')}}">Login</a></li>
 
         </ul>
       </nav><!-- .nav-menu -->

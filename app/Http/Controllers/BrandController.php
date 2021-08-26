@@ -57,7 +57,13 @@ class BrandController extends Controller
             'brand_image'=>$last_img,
             'created_at'=> Carbon::now()
         ]);
-        return Redirect()->back()->with('success', 'Brand berhasil ditambahkan');
+
+            $notification = array(
+                'message'=>'Brand Berhasil ditambah',
+                'alert-type'=>'success',
+            );
+        // return Redirect()->back()->with('success', 'Brand berhasil ditambahkan');
+        return Redirect()->back()->with($notification);
 
     }
 
@@ -103,7 +109,12 @@ class BrandController extends Controller
             ]);
         }
 
-        return Redirect()->back()->with('success', 'Brand berhasil diubah');
+        $notification = array(
+            'message'=>'Brand Berhasil diubah',
+            'alert-type'=>'info',
+        );
+
+        return Redirect()->back()->with($notification);
     }
 
     public function Delete($id){
@@ -112,7 +123,13 @@ class BrandController extends Controller
         unlink($old_image);
 
         Brand::find($id)->delete();
-        return Redirect()->back()->with('success', 'Brand berhasil dihapus');
+
+
+        $notification = array(
+            'message'=>'Brand Berhasil dihapus',
+            'alert-type'=>'error',
+        );
+        return Redirect()->back()->with($notification);
     }
 
 

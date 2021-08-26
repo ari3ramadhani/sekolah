@@ -140,3 +140,4 @@ Route::post('/password/update', [ChangePass::class, 'UpdatePass'])->name('passwo
 
 // Profile User
 Route::get('/user/profile', [ChangePass::class, 'PUpdate'])->name('profile.update');
+Route::post('/user/profile/update', [ChangePass::class, 'UpdateProfile'])->name('update.user.profile');

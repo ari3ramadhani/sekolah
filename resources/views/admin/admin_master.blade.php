@@ -24,7 +24,8 @@
   <!-- SLEEK CSS -->
   <link id="sleek-css" rel="stylesheet" href="{{asset('backend/assets/css/sleek.css')}}" />
 
-
+{{-- taoser --}}
+<link  rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
 
   <!-- FAVICON -->
   <link href="{{asset('backend/assets/img/favicon.png')}}" rel="shortcut icon" />
@@ -133,10 +134,11 @@
                       </li>
                     </ul>
                   </li>
+                  {{-- {{ Auth::user()->profile_photo_url }} --}}
                   <!-- User Account -->
                   <li class="dropdown user-menu">
                     <button href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                      <img src="{{ Auth::user()->profile_photo_url }}" class="user-image" alt="User Image" />
+                      <img src="{{asset(Auth::user()->profile_photo_url)}}" class="user-image" alt="User Image" />
                       <span class="d-none d-lg-inline-block">{{Auth::user()->name}}</span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right">
@@ -232,7 +234,28 @@
 <script src="{{asset('backend/assets/js/map.js')}}"></script>
 <script src="{{asset('backend/assets/js/custom.js')}}"></script>
 
+{{-- taoaster --}}
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
+<script>
+    @if(Session::has('message'))
+    var type = "{{Session::get('alert-type','info')}}"
+    switch(type){
+        case 'info':
+        toastr.info("{{ Session::get('message') }}");
+        break;
+        case 'success':
+        toastr.success("{{ Session::get('message') }}");
+        break;
+        case 'warning':
+        toastr.warning("{{ Session::get('message') }}");
+        break;
+        case 'error':
+        toastr.error("{{ Session::get('message') }}");
+        break;
+    }
+    @endif
+</script>
 
 
   </body>
